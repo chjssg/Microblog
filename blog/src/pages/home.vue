@@ -1,5 +1,5 @@
 <template>
-<div id="">
+<div id="home">
 		<z-nav></z-nav>
 		<div id="container" class="container">
 			<!-- 未登录状态 -->
@@ -41,8 +41,8 @@
 			</div>
 			<hr>
 			<!-- 内容部分 -->
-			<div class="row">
-				<div class="col-sm-2 col-md-2 col-xs-1 ringhtBar">
+			<div class="row clearfix">
+        <div class="col-sm-2 col-md-2 col-xs-1 ringhtBar">
 					<p>推荐内容</p>
 				</div>
 				<div v-for='item in context' :key="item.id"  class="bigBox col-sm-8  col-xs-10">
@@ -230,197 +230,200 @@ export default {
 };
 </script>
 <style type="text/css" lang='less'>
-.jumbotron {
-  width: 95%;
-  margin: 0 auto;
-}
-.disapper {
-  display: none;
-}
-.display {
-  display: block;
-}
-.row {
-  position: relative;
-  a {
-    cursor: pointer;
+#home {
+  .jumbotron {
+    width: 95%;
+    margin: 0 auto;
   }
-  .d1 {
-    position: absolute;
-    top: 30px;
-    left: 105px;
-    z-index: 10;
-    width: 350px;
-    height: auto;
-    background: rgba(246, 248, 250, 1);
-    border: 1px solid black;
-    #inputImg {
-      display: none;
-    }
-    .littleNav {
-      height: 40px;
-      h5 {
-        float: left;
-        margin-left: 20px;
-      }
-      .close {
-        font-size: 15px;
-        margin-top: 10px;
-        margin-right: 10px;
-      }
-    }
-    .label {
-      width: 100px;
-      height: 100px;
-      // display: inline-block;
-      float: left;
-      padding: 0;
-      margin-left: 11px;
-      margin-top: 5px;
-      .box:hover {
-        border: 1px solid orange;
-        color: orange;
-      }
-      .box {
-        width: 100px;
-        height: 100px;
-        color: black;
-        text-align: center;
-        vertical-align: middle;
-        background-color: rgba(149, 149, 149, 0.7);
-        border: 1px dashed rgba(184, 184, 184, 0.3);
-        // display: none;
-      }
-    }
-    .img {
-      width: 100px;
-      height: 100px;
-      display: inline-block;
-      float: left;
-      margin-left: 11px;
-      margin-top: 5px;
-      margin-bottom: 10px;
-    }
+  .disapper {
+    display: none;
   }
-}
-
-.box {
-  // background-color:yellow;
-  .resize {
-    resize: none;
+  .display {
+    display: block;
   }
   .row {
-    margin-top: 10px;
-    a:hover {
-      color: orange;
-    }
+    position: relative;
     a {
-      text-decoration: none;
-      line-height: 30px;
-      span {
-        font-size: 15px;
-        color: orange;
-      }
+      cursor: pointer;
     }
-    .bgcolor:hover {
-      background-color: white;
-      color: orange;
-      border: 1px solid orange;
-    }
-    .bgcolor {
-      background-color: orange;
-      color: white;
-      font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-      display: inline-block;
-      float: right;
-      line-height: 15px;
-      width: 80px;
-      height: 30px;
-      margin-right: 25px;
-    }
-  }
-}
-.bigBox {
-  background: rgba(236, 236, 236, 0.5);
-  border-radius: 10px;
-  margin-left: 30px;
-  margin-top: 35px;
-  float: left;
-  .context {
-    display: flex;
-    .left {
-      flex-grow: 1;
-      flex-basis: 1%;
-      // background-color: red;
-      img {
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        margin-left: 70px;
-        margin-top: 10px;
-        float: right;
+    .d1 {
+      position: absolute;
+      top: 30px;
+      left: 105px;
+      z-index: 10;
+      width: 350px;
+      height: auto;
+      background: rgba(246, 248, 250, 1);
+      border: 1px solid black;
+      #inputImg {
+        display: none;
       }
-    }
-    .right {
-      flex-grow: 5;
-      margin-right: 100px;
-      padding-left: 10px;
-      // background: yellow;
-      .nickname {
-        font-size: 18px;
-        margin-top: 15px;
+      .littleNav {
+        height: 40px;
+        h5 {
+          float: left;
+          margin-left: 20px;
+        }
+        .close {
+          font-size: 15px;
+          margin-top: 10px;
+          margin-right: 10px;
+        }
       }
-      .date {
-        margin: 5px 0;
+      .label {
+        width: 100px;
+        height: 100px;
+        // display: inline-block;
+        float: left;
+        padding: 0;
+        margin-left: 11px;
+        margin-top: 5px;
+        .box:hover {
+          border: 1px solid orange;
+          color: orange;
+        }
+        .box {
+          width: 100px;
+          height: 100px;
+          color: black;
+          text-align: center;
+          vertical-align: middle;
+          background-color: rgba(149, 149, 149, 0.7);
+          border: 1px dashed rgba(184, 184, 184, 0.3);
+          // display: none;
+        }
       }
-      .text {
-        font-size: 17px;
-      }
-      .images {
-        width: 150px;
-        height: 150px;
-        margin-right: 15px;
-        margin-bottom: 30px;
+      .img {
+        width: 100px;
+        height: 100px;
+        display: inline-block;
+        float: left;
+        margin-left: 11px;
+        margin-top: 5px;
+        margin-bottom: 10px;
       }
     }
   }
-  .func {
-    display: flex;
-    margin: auto 50px;
-    height: 50px;
-    border-top: 1px solid rgba(184, 184, 184, 0.5);
-    line-height: 50px;
-    .item {
-      flex-grow: 1;
-      height: 20px;
-      // background-color: pink;
-      text-align: center;
+
+  .box {
+    // background-color:yellow;
+    .resize {
+      resize: none;
+    }
+    .row {
+      margin-top: 10px;
       a:hover {
         color: orange;
       }
       a {
         text-decoration: none;
         line-height: 30px;
-        font-size: 17px;
-        color: gray;
         span {
+          font-size: 15px;
+          color: orange;
+        }
+      }
+      .bgcolor:hover {
+        background-color: white;
+        color: orange;
+        border: 1px solid orange;
+      }
+      .bgcolor {
+        background-color: orange;
+        color: white;
+        font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+        display: inline-block;
+        float: right;
+        line-height: 15px;
+        width: 80px;
+        height: 30px;
+        margin-right: 25px;
+      }
+    }
+  }
+  .bigBox {
+    background: rgba(236, 236, 236, 0.5);
+    border-radius: 10px;
+    margin-left: 30px;
+    margin-top: 35px;
+    float: left;
+    .context {
+      display: flex;
+      .left {
+        flex-grow: 1;
+        flex-basis: 1%;
+        // background-color: red;
+        img {
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+          margin-left: 70px;
+          margin-top: 10px;
+          float: right;
+        }
+      }
+      .right {
+        flex-grow: 5;
+        margin-right: 100px;
+        padding-left: 10px;
+        // background: yellow;
+        .nickname {
+          font-size: 18px;
+          margin-top: 15px;
+        }
+        .date {
+          margin: 5px 0;
+        }
+        .text {
+          font-size: 17px;
+        }
+        .images {
+          width: 150px;
+          height: 150px;
+          margin-right: 15px;
+          margin-bottom: 30px;
+        }
+      }
+    }
+    .func {
+      display: flex;
+      margin: auto 50px;
+      height: 50px;
+      border-top: 1px solid rgba(184, 184, 184, 0.5);
+      line-height: 50px;
+      .item {
+        flex-grow: 1;
+        height: 20px;
+        // background-color: pink;
+        text-align: center;
+        a:hover {
+          color: orange;
+        }
+        a {
+          text-decoration: none;
+          line-height: 30px;
           font-size: 17px;
           color: gray;
+          span {
+            font-size: 17px;
+            color: gray;
+          }
         }
       }
     }
   }
+  .ringhtBar {
+    background: rgba(236, 236, 236, 0.5);
+    float: right;
+    overflow: hidden;
+    margin-right: 50px;
+    margin-top: 40px;
+    height: 500px;
+    border-radius: 10px;
+    text-align: center;
+  }
 }
-.ringhtBar {
-  background: rgba(236, 236, 236, 0.5);
-  float: right;
-  overflow: hidden;
-  margin-right: 50px;
-  margin-top: 40px;
-  height: 500px;
-  border-radius: 10px;
-  text-align: center;
-}
+
 /*清除浮动代码*/
 .clearfix:after {
   display: block;

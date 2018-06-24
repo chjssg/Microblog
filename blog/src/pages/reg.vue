@@ -1,5 +1,5 @@
 <template>
-	<div id="">
+	<div id="reg">
 		<z-nav></z-nav>
 		<div id="container" class="container">
 			<form class="form-horizontal" >
@@ -66,58 +66,53 @@
 	</div>
 </template>
 <script type="text/javascript">
-	export default {
+export default {
   // name: 'hello',
-  data () {
+  data() {
     return {
-	  	msg: 'Welcome to Your Vue.js App',
-	  	flag:0,
-      	username: '',
-      	nickname:'',
-		password: '',
-		passwordRepeat:'',
-    }
+      msg: "Welcome to Your Vue.js App",
+      flag: 0,
+      username: "",
+      nickname: "",
+      password: "",
+      passwordRepeat: ""
+    };
   },
-  mounted:function(){
-
-  },
+  mounted: function() {},
   methods: {
     addUser() {
-			var that = this;
-			//邮箱正则表达式
-			var reg = new RegExp("^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$"); 
-			var user = {
-				username : that.username,
-				password : that.password,
-				nickname : that.nickname,
-				passwordRepeat : that.passwordRepeat
-			}
-			if(that.username === ''||!reg.test(that.username)){
-				that.flag = 2
-			}else if(that.password!==that.passwordRepeat){
-				that.flag = 1
-			}else if(that.password==''&&that.passwordRepeat==''){
-				that.flag = 4
-			}
-			else if(that.nickname==''){
-				that.flag = 5;
-			}
-			else{
-				this.$http.post('/api/reg',user).then(function(res){
-					if (res.status === 200) {
-						// console.log(res.data);
-						that.flag = 3;
-						that.$router.push({path:'/'});
-						that.$store.state.user = user;
-					}
-				})
-			}
-			
-			
+      var that = this;
+      //邮箱正则表达式
+      var reg = new RegExp(
+        "^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$"
+      );
+      var user = {
+        username: that.username,
+        password: that.password,
+        nickname: that.nickname,
+        passwordRepeat: that.passwordRepeat
+      };
+      if (that.username === "" || !reg.test(that.username)) {
+        that.flag = 2;
+      } else if (that.password !== that.passwordRepeat) {
+        that.flag = 1;
+      } else if (that.password == "" && that.passwordRepeat == "") {
+        that.flag = 4;
+      } else if (that.nickname == "") {
+        that.flag = 5;
+      } else {
+        this.$http.post("/api/reg", user).then(function(res) {
+          if (res.status === 200) {
+            // console.log(res.data);
+            that.flag = 3;
+            that.$router.push({ path: "/" });
+            that.$store.state.user = user;
+          }
+        });
+      }
     }
   }
-}
+};
 </script>
 <style type="text/css">
-	
 </style>
